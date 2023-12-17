@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+        using TMPro;
 namespace SG
 {
 	/// <summary> When enabled, this script collects Force-Feedback information from the fingers, and sends them to a HapticGlove </summary>
@@ -158,6 +158,12 @@ namespace SG
 
 
         /// <summary> Retrieve the forces for each finger and send these to the glove. </summary>
+        /// 
+
+
+        public TextMeshProUGUI forceLevelText1;
+        public TextMeshProUGUI forceLevelText2;
+        public TextMeshProUGUI forceLevelText3;
         public virtual void UpdateForces()
         {
             if (this.isActiveAndEnabled && this.hapticHardware != null && this.hapticHardware.IsConnected()) //don't send FFB when disconnected.
@@ -171,7 +177,16 @@ namespace SG
                         {
                             forceLevels[f] = fingerFeedbackScripts[f].ForceLevel;
                         }
+                        
                     }
+
+                    string Text1 = $"Force Level {0}: {forceLevels[0]}"; // Customize this based on your needs.
+                    forceLevelText1.text = Text1;
+                    string Text2 = $"Force Level {1}: {forceLevels[1]}"; // Customize this based on your needs.
+                    forceLevelText2.text = Text2;
+                    string Text3 = $"Force Level {2}: {forceLevels[2]}"; // Customize this based on your needs.
+                    forceLevelText3.text = Text3;
+
                     hapticHardware.SendCmd(new SGCore.Haptics.SG_FFBCmd(forceLevels));
                 }
 

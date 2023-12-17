@@ -7,7 +7,6 @@ public class CreateBonds : MonoBehaviour
 {
     [SerializeField] public GameObject bondPrefab;
     static bool bondscreated = false;
-    public float cutoff;
     public Transform atomParent;
     public Transform bondParent;
     public Transform parentTransform;
@@ -29,7 +28,8 @@ public class CreateBonds : MonoBehaviour
 
                     float distance = Vector3.Distance(start, end);                    
                     Vector3 bondPosition = (start + end) / 2f;
-                    Vector3 bondScale = new Vector3(0.05f, Vector3.Distance(start, end) / 2f, 0.05f);
+                    Vector3 bondScale = new Vector3(0.25f, Vector3.Distance(start, end) / 2f, 0.25f);
+
 
                     GameObject bond = bondParent.GetChild(bondcounter).gameObject;
 
@@ -87,7 +87,7 @@ public class CreateBonds : MonoBehaviour
     void createBond(Vector3 start, Vector3 end, float distance, string atomTypeA, string atomTypeB)
     {
         Vector3 bondPosition = (start + end) / 2f;
-        Vector3 bondScale = new Vector3(0.05f, Vector3.Distance(start, end) / 2f, 0.05f);
+        Vector3 bondScale = new Vector3(0.25f, Vector3.Distance(start, end) / 2f, 0.25f);
 
         GameObject bond = Instantiate(bondPrefab, bondPosition, Quaternion.identity);
         bond.transform.SetParent(bondParent);
@@ -95,7 +95,11 @@ public class CreateBonds : MonoBehaviour
 
         Quaternion rotation = Quaternion.FromToRotation(Vector3.up, end - start);
         bond.transform.rotation = rotation;
-        bond.transform.localScale = parentTransform.localScale;
+        bond.transform.localScale = bondScale;
+        // bond.GetComponent<CapsuleCollider>().radius = 0.25f;
+        // bond.GetComponent<CapsuleCollider>().height = Vector3.Distance(start, end);
+
+        
 
         setVisibility(distance, bond, atomTypeA, atomTypeB);  
     }
@@ -157,6 +161,8 @@ public class CreateBonds : MonoBehaviour
     {
         calculateBonds();
     }
+
+
     void Update()
     {
         if (bondscreated)
