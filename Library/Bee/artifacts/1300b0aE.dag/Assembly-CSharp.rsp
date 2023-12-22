@@ -437,6 +437,7 @@
 "Assets/SenseGlove/Scripts/Interaction/SG_GrabScript.cs"
 "Assets/SenseGlove/Scripts/Interaction/SG_HoverCollider.cs"
 "Assets/SenseGlove/Scripts/Interaction/SG_Interactable.cs"
+"Assets/SenseGlove/Scripts/Interaction/SG_PhysicsBondsGrab.cs"
 "Assets/SenseGlove/Scripts/Interaction/SG_PhysicsGrab.cs"
 "Assets/SenseGlove/Scripts/Interaction/SG_SimpleDrawer.cs"
 "Assets/SenseGlove/Scripts/Interaction/SG_SnapOptions.cs"

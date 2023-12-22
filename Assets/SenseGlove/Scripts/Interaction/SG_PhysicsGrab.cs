@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+        using TMPro;
+
 
 namespace SG
 {
@@ -339,7 +341,7 @@ namespace SG
 
 
 
-
+    public TextMeshProUGUI forceLevelText1;
 
         public override void UpdateGrabLogic(float dT)
         {
@@ -363,9 +365,15 @@ namespace SG
             }
             this.wantsGrab = GetGrabIntent(this.lastNormalized); //doing this here so I can evaluate from inspector
 
+            string Text1 = $"Is Grabbing: {this.IsGrabbing}"; // Customize this based on your needs.
+            forceLevelText1.text = Text1;
             // Evaluate Grabbing / Releasing
             if (this.IsGrabbing) //Check for release - Gesture Based
             {
+                if(this.heldObjects[0].CompareTag("bond")){
+                    this.heldObjects[0].GetComponent<MeshRenderer>().enabled = false;
+                    //this.heldObjects[0].defaultMaterial.color = newColor;
+                }
                 EvaluateRelease();
             }
             else //Check for Grab (collision based)

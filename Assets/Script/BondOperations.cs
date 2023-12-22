@@ -11,6 +11,37 @@ public class CreateBonds : MonoBehaviour
     public Transform bondParent;
     public Transform parentTransform;
 
+    private Dictionary<string, Tuple<int, int>> bondAtomConnections = new Dictionary<string, Tuple<int, int>>();
+
+    public void AddConnection(int bondIndex, int atomIndexA, int atomIndexB)
+    {
+        // Check if the bond index already exists in the dictionary
+        if (!bondAtomConnections.ContainsKey(bondIndex.ToString()))
+        {
+            // Add the connection to the dictionary
+            bondAtomConnections.Add(bondIndex.ToString(), new Tuple<int, int>(atomIndexA, atomIndexB));
+        }
+        else
+        {
+            Debug.LogWarning($"Bond index {bondIndex} already exists in the dictionary.");
+        }
+    }
+
+    public Tuple<int, int> GetConnectedAtoms(string bondIndex)
+    {
+        // Check if the bond index exists in the dictionary
+        if (bondAtomConnections.TryGetValue(bondIndex, out var connectedAtoms))
+        {
+            Debug.Log($"Connected Atoms: Atom{connectedAtoms.Item1}, Atom{connectedAtoms.Item2}");
+            return connectedAtoms;
+        }
+        else
+        {
+            Debug.LogWarning($"No connection found for bond index {bondIndex}.");
+            return null;
+        }
+    }
+
     /// <summary>
     /// This mehtod is called every frame, it resets and rescaled the bond objects according to the atom movement
     /// and resets the visibility of those objects.
@@ -21,7 +52,7 @@ public class CreateBonds : MonoBehaviour
         {
             for (int j = i + 1; j < atomParent.childCount; j++)
             {
-                if (i != j )
+                if (i != j)
                 {
                     Vector3 start = atomParent.GetChild(i).transform.localPosition;
                     Vector3 end = atomParent.GetChild(j).transform.localPosition;
@@ -58,6 +89,7 @@ public class CreateBonds : MonoBehaviour
     public void calculateBonds(){
         MainThreadDispatcher.Enqueue(() =>
         {
+            int bondIndex = 0;
             for (int i = 0; i < atomParent.childCount - 1; i++)
             {
                 for (int j = i + 1; j < atomParent.childCount; j++)
@@ -68,7 +100,9 @@ public class CreateBonds : MonoBehaviour
                     string atomTypeA = atomParent.GetChild(i).gameObject.GetComponent<AtomType>().atomType.ToString();
                     string atomTypeB = atomParent.GetChild(j).gameObject.GetComponent<AtomType>().atomType.ToString();                  
                     
-                    createBond(start, end, distance, atomTypeA, atomTypeB);
+                    createBond(start, end, distance, atomTypeA, atomTypeB, bondIndex);
+                    AddConnection(bondIndex, i, j);
+                    bondIndex++;
                 }
             }
         });
@@ -84,7 +118,7 @@ public class CreateBonds : MonoBehaviour
     /// <param name="distance"> the distance between the two atom coordinates = bond length </param>
     /// <param name="atomTypeA"> the element of atom A as string </param>
     /// <param name="atomTypeB"> the element of atom B as string </param>
-    void createBond(Vector3 start, Vector3 end, float distance, string atomTypeA, string atomTypeB)
+    void createBond(Vector3 start, Vector3 end, float distance, string atomTypeA, string atomTypeB, int bondIndex)
     {
         Vector3 bondPosition = (start + end) / 2f;
         Vector3 bondScale = new Vector3(0.25f, Vector3.Distance(start, end) / 2f, 0.25f);
@@ -92,6 +126,7 @@ public class CreateBonds : MonoBehaviour
         GameObject bond = Instantiate(bondPrefab, bondPosition, Quaternion.identity);
         bond.transform.SetParent(bondParent);
         bond.transform.rotation = parentTransform.rotation;
+        bond.name = bondIndex.ToString();
 
         Quaternion rotation = Quaternion.FromToRotation(Vector3.up, end - start);
         bond.transform.rotation = rotation;
@@ -156,6 +191,8 @@ public class CreateBonds : MonoBehaviour
             Debug.LogWarning("Object Type " + atomTypeA + "or" + atomTypeB + " not found in dictionary.");
         }
     }
+
+
     
     void Start()
     {

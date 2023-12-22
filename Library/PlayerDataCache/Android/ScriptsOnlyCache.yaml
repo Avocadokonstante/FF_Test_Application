@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - CreateBonds
     - MainThreadDispatcher
     - MolecularOperations
+    - SG.BondGrab
     - SG.SG_BasicGesture
     - SG.SG_CalibrationSequence
     - SG.SG_DeviceSelector
@@ -24,6 +25,7 @@ ScriptsOnlyBuild:
     - SG.SG_Material
     - SG.SG_MaterialDetector
     - SG.SG_MaterialProperties
+    - SG.SG_PhysicsBondsGrab
     - SG.SG_PhysicsGrab
     - SG.SG_SimpleTracking
     - SG.SG_TrackedHand
@@ -126,7 +128,9 @@ ScriptsOnlyBuild:
     Unity.XR.OpenXR.Features.MetaQuestSupport:
     - UnityEngine.XR.OpenXR.Features.MetaQuestSupport.MetaQuestFeature/TargetDevice
     UnityEngine.CoreModule:
+    - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
+    - UnityEngine.Events.PersistentListenerMode
     - UnityEngine.Events.UnityEvent
     UnityEngine.TextCoreFontEngineModule:
     - UnityEngine.TextCore.FaceInfo
@@ -201,59 +205,63 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 19870}
     - Class: 114
-      Script: {instanceID: 20216}
+      Script: {instanceID: 20072}
     - Class: 114
-      Script: {instanceID: 20238}
+      Script: {instanceID: 20218}
     - Class: 114
-      Script: {instanceID: 20378}
+      Script: {instanceID: 20240}
     - Class: 114
-      Script: {instanceID: 20572}
+      Script: {instanceID: 20380}
     - Class: 114
-      Script: {instanceID: 20656}
+      Script: {instanceID: 20574}
     - Class: 114
-      Script: {instanceID: 20770}
+      Script: {instanceID: 20658}
     - Class: 114
-      Script: {instanceID: 20854}
+      Script: {instanceID: 20772}
     - Class: 114
-      Script: {instanceID: 21170}
+      Script: {instanceID: 20856}
     - Class: 114
-      Script: {instanceID: 21520}
+      Script: {instanceID: 21172}
     - Class: 114
-      Script: {instanceID: 21596}
+      Script: {instanceID: 21522}
     - Class: 114
-      Script: {instanceID: 21616}
+      Script: {instanceID: 21598}
     - Class: 114
-      Script: {instanceID: 21820}
+      Script: {instanceID: 21618}
     - Class: 114
-      Script: {instanceID: 22022}
+      Script: {instanceID: 21822}
     - Class: 114
-      Script: {instanceID: 22236}
+      Script: {instanceID: 22024}
     - Class: 114
-      Script: {instanceID: 22376}
+      Script: {instanceID: 22238}
     - Class: 114
-      Script: {instanceID: 22558}
+      Script: {instanceID: 22378}
     - Class: 114
-      Script: {instanceID: 22584}
+      Script: {instanceID: 22560}
     - Class: 114
-      Script: {instanceID: 22822}
+      Script: {instanceID: 22586}
     - Class: 114
-      Script: {instanceID: 23004}
+      Script: {instanceID: 22824}
     - Class: 114
-      Script: {instanceID: 23048}
+      Script: {instanceID: 23006}
     - Class: 114
-      Script: {instanceID: 23168}
+      Script: {instanceID: 23050}
     - Class: 114
-      Script: {instanceID: 23180}
+      Script: {instanceID: 23170}
     - Class: 114
-      Script: {instanceID: 23306}
+      Script: {instanceID: 23182}
     - Class: 114
-      Script: {instanceID: 23892}
+      Script: {instanceID: 23308}
     - Class: 114
-      Script: {instanceID: 24210}
+      Script: {instanceID: 23894}
     - Class: 114
-      Script: {instanceID: 24260}
+      Script: {instanceID: 24212}
     - Class: 114
-      Script: {instanceID: 25402}
+      Script: {instanceID: 25404}
+    - Class: 114
+      Script: {instanceID: 25652}
+    - Class: 114
+      Script: {instanceID: 26216}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1173,6 +1181,12 @@ ScriptsOnlyBuild:
     className: UnityOnCollisionStay2DMessageListener
   - hash:
       serializedVersion: 2
+      Hash: d7bd55c4e57fd7e208c80ebe56663c36
+    assemblyName: Assembly-CSharp
+    namespaceName: SG
+    className: BondGrab
+  - hash:
+      serializedVersion: 2
       Hash: f60085eba621f0023ea84554fae25344
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
@@ -1323,7 +1337,7 @@ ScriptsOnlyBuild:
     className: InputSystemObject
   - hash:
       serializedVersion: 2
-      Hash: 5ac4502a94e21ccff054ba72628001bc
+      Hash: 04be84a9c7326178f5a2cd6f488ebc46
     assemblyName: Assembly-CSharp
     namespaceName: SG
     className: SG_PhysicsGrab
@@ -2319,6 +2333,12 @@ ScriptsOnlyBuild:
     className: SwingArmModel
   - hash:
       serializedVersion: 2
+      Hash: 0d10768156f820cdee8690d3d9ee2714
+    assemblyName: Assembly-CSharp
+    namespaceName: SG
+    className: SG_Material_Bond
+  - hash:
+      serializedVersion: 2
       Hash: 7a8368feb168f327323ffd90efc193c9
     assemblyName: Unity.XR.Interaction.Toolkit
     namespaceName: UnityEngine.XR.Interaction.Toolkit.Transformers
@@ -2529,10 +2549,10 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 0d10768156f820cdee8690d3d9ee2714
+      Hash: 04be84a9c7326178f5a2cd6f488ebc46
     assemblyName: Assembly-CSharp
     namespaceName: SG
-    className: SG_Material_Bond
+    className: SG_PhysicsBondsGrab
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
