@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class CreateBonds : MonoBehaviour
+public class BondOperation : MonoBehaviour
 {
     [SerializeField] public GameObject bondPrefab;
     static bool bondscreated = false;
@@ -11,8 +11,7 @@ public class CreateBonds : MonoBehaviour
     public Transform bondParent;
     public Transform parentTransform;
 
-    private Dictionary<string, Tuple<int, int>> bondAtomConnections = new Dictionary<string, Tuple<int, int>>();
-
+    SystemInfoManager systemInfoManager = SystemInfoManager.Instance;
     public void AddConnection(int bondIndex, int atomIndexA, int atomIndexB)
     {
         // Check if the bond index already exists in the dictionary
@@ -54,6 +53,9 @@ public class CreateBonds : MonoBehaviour
             {
                 if (i != j)
                 {
+                    GameObject bond = bondParent.GetChild(bondcounter).gameObject;
+                    if(!bond.GetComponent<BondInformation>().isGrabbed)
+                    {
                     Vector3 start = atomParent.GetChild(i).transform.localPosition;
                     Vector3 end = atomParent.GetChild(j).transform.localPosition;
 
@@ -62,7 +64,6 @@ public class CreateBonds : MonoBehaviour
                     Vector3 bondScale = new Vector3(0.25f, Vector3.Distance(start, end) / 2f, 0.25f);
 
 
-                    GameObject bond = bondParent.GetChild(bondcounter).gameObject;
 
                     bond.transform.localPosition = bondPosition;
                     Quaternion rotation = Quaternion.FromToRotation(Vector3.up, end - start);
@@ -75,7 +76,7 @@ public class CreateBonds : MonoBehaviour
                     string atomTypeB = atomParent.GetChild(j).gameObject.GetComponent<AtomType>().atomType.ToString();
 
                     setVisibility(distance, bond, atomTypeA, atomTypeB);
-
+                    }
                     bondcounter++;
                 }
             }
@@ -101,7 +102,7 @@ public class CreateBonds : MonoBehaviour
                     string atomTypeB = atomParent.GetChild(j).gameObject.GetComponent<AtomType>().atomType.ToString();                  
                     
                     createBond(start, end, distance, atomTypeA, atomTypeB, bondIndex);
-                    AddConnection(bondIndex, i, j);
+                    systemInfoManager.SetInfo(bondIndex, i, j);
                     bondIndex++;
                 }
             }

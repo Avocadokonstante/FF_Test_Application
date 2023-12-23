@@ -48,6 +48,7 @@
      <Compile Include="Assets\SenseGlove\Scripts\Util\SG_Debugger.cs" />
      <Compile Include="Assets\SenseGlove\Scripts\Feedback\SG_Waveform.cs" />
      <Compile Include="Assets\SenseGlove\Scripts\Interaction\SG_Interactable.cs" />
+     <Compile Include="Assets\Script\AtomOperations.cs" />
      <Compile Include="Assets\Script\AtomInformation.cs" />
      <Compile Include="Assets\SenseGlove\Scripts\Util\SG_WireFrame.cs" />
      <Compile Include="Assets\Script\BondOperations.cs" />
@@ -67,6 +68,8 @@
      <Compile Include="Assets\SenseGlove\Examples\Resources\SGEx_SelectHandModel.cs" />
      <Compile Include="Assets\SenseGlove\Scripts\Interaction\SG_SnapOptions.cs" />
      <Compile Include="Assets\SenseGlove\Scripts\Tracking\SG_SimpleTracking.cs" />
+     <Compile Include="Assets\Script\BondForceFeedback.cs" />
+     <Compile Include="Assets\Script\BondInformation.cs" />
      <Compile Include="Assets\SenseGlove\Scripts\Util\SG_IAndroid.cs" />
      <Compile Include="Assets\SenseGlove\Scripts\Util\SG_User.cs" />
      <Compile Include="Assets\SenseGlove\Scripts\Interaction\SG_Breakable.cs" />
@@ -102,7 +105,6 @@
      <Compile Include="Assets\SenseGlove\Scripts\Feedback\SG_Material_Bond.cs" />
      <Compile Include="Assets\SenseGlove\Scripts\Interaction\SG_BreakableContainer.cs" />
      <Compile Include="Assets\Script\MainThreadDispatcher.cs" />
-     <Compile Include="Assets\Script\MolecularOperations.cs" />
      <Compile Include="Assets\SenseGlove\Scripts\Tracking\SG_HandPoser3D.cs" />
      <Compile Include="Assets\SenseGlove\Scripts\Interaction\SG_GrabPoint.cs" />
      <Compile Include="Assets\SenseGlove\Examples\Resources\SGEx_DebugGesture.cs" />

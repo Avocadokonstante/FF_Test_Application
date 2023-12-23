@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8897271946424358347}
   - component: {fileID: 9039877129443296903}
   - component: {fileID: 2235000708898563767}
+  - component: {fileID: 6721796679091443581}
   m_Layer: 0
   m_Name: Bond FF (1)
   m_TagString: bond
@@ -153,3 +154,17 @@ MonoBehaviour:
   mustBeGrabbed: 0
   requiresThumb: 0
   minimumFingers: 1
+--- !u!114 &6721796679091443581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864834592407968629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 833f0eca3f64a1445aba8fea1c76fc3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGrabbed: 0
+  startLength: 0

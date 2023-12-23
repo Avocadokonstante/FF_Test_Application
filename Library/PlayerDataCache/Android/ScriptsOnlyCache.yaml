@@ -2,10 +2,9 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - AtomType
-    - CreateBonds
+    - BondOperation
     - MainThreadDispatcher
     - MolecularOperations
-    - SG.BondGrab
     - SG.SG_BasicGesture
     - SG.SG_CalibrationSequence
     - SG.SG_DeviceSelector
@@ -205,63 +204,63 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 19870}
     - Class: 114
-      Script: {instanceID: 20072}
+      Script: {instanceID: 20216}
     - Class: 114
-      Script: {instanceID: 20218}
+      Script: {instanceID: 20238}
     - Class: 114
-      Script: {instanceID: 20240}
+      Script: {instanceID: 20378}
     - Class: 114
-      Script: {instanceID: 20380}
+      Script: {instanceID: 20572}
     - Class: 114
-      Script: {instanceID: 20574}
+      Script: {instanceID: 20656}
     - Class: 114
-      Script: {instanceID: 20658}
+      Script: {instanceID: 20770}
     - Class: 114
-      Script: {instanceID: 20772}
+      Script: {instanceID: 20854}
     - Class: 114
-      Script: {instanceID: 20856}
+      Script: {instanceID: 21170}
     - Class: 114
-      Script: {instanceID: 21172}
+      Script: {instanceID: 21520}
     - Class: 114
-      Script: {instanceID: 21522}
+      Script: {instanceID: 21596}
     - Class: 114
-      Script: {instanceID: 21598}
+      Script: {instanceID: 21616}
     - Class: 114
-      Script: {instanceID: 21618}
+      Script: {instanceID: 21820}
     - Class: 114
-      Script: {instanceID: 21822}
+      Script: {instanceID: 22022}
     - Class: 114
-      Script: {instanceID: 22024}
+      Script: {instanceID: 22236}
     - Class: 114
-      Script: {instanceID: 22238}
+      Script: {instanceID: 22376}
     - Class: 114
-      Script: {instanceID: 22378}
+      Script: {instanceID: 22558}
     - Class: 114
-      Script: {instanceID: 22560}
+      Script: {instanceID: 22584}
     - Class: 114
-      Script: {instanceID: 22586}
+      Script: {instanceID: 22822}
     - Class: 114
-      Script: {instanceID: 22824}
+      Script: {instanceID: 23004}
     - Class: 114
-      Script: {instanceID: 23006}
+      Script: {instanceID: 23048}
     - Class: 114
-      Script: {instanceID: 23050}
+      Script: {instanceID: 23168}
     - Class: 114
-      Script: {instanceID: 23170}
+      Script: {instanceID: 23180}
     - Class: 114
-      Script: {instanceID: 23182}
+      Script: {instanceID: 23306}
     - Class: 114
-      Script: {instanceID: 23308}
+      Script: {instanceID: 23892}
     - Class: 114
-      Script: {instanceID: 23894}
+      Script: {instanceID: 24210}
     - Class: 114
-      Script: {instanceID: 24212}
+      Script: {instanceID: 25402}
     - Class: 114
-      Script: {instanceID: 25404}
+      Script: {instanceID: 25650}
     - Class: 114
-      Script: {instanceID: 25652}
+      Script: {instanceID: 26228}
     - Class: 114
-      Script: {instanceID: 26216}
+      Script: {instanceID: 26230}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1181,12 +1180,6 @@ ScriptsOnlyBuild:
     className: UnityOnCollisionStay2DMessageListener
   - hash:
       serializedVersion: 2
-      Hash: d7bd55c4e57fd7e208c80ebe56663c36
-    assemblyName: Assembly-CSharp
-    namespaceName: SG
-    className: BondGrab
-  - hash:
-      serializedVersion: 2
       Hash: f60085eba621f0023ea84554fae25344
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
@@ -1538,7 +1531,7 @@ ScriptsOnlyBuild:
       Hash: d24399511d7a84a94b882c6ce144baca
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: CreateBonds
+    className: BondOperation
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -2553,6 +2546,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: SG
     className: SG_PhysicsBondsGrab
+  - hash:
+      serializedVersion: 2
+      Hash: b79f683ddc3592be8353130a649a5d7f
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: BondInformation
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

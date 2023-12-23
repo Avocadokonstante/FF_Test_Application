@@ -64,7 +64,6 @@ public class MolecularOperations : MonoBehaviour
         for (int i = 0; i < atomTransform.childCount; i++)
         {
             Transform child = atomTransform.GetChild(i);
-            Vector3 targetPosition = targetPositions[i];
             // Move the child object to the target position in a Coroutine
             StartCoroutine(Move(child.localPosition, targetPositions[i], child));
         }
